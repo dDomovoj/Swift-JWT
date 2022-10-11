@@ -31,7 +31,9 @@ import Foundation
  ```
  */
 public struct Header: Codable {
-    
+  
+    /// Id Parameter
+    public var id: String?
     /// Type Header Parameter
     public var typ: String?
     /// Algorithm Header Parameter
@@ -69,6 +71,7 @@ public struct Header: Codable {
     /// - Parameter crit: The Critical Header Parameter
     /// - Returns: A new instance of `Header`.
     public init(
+        id: String? = nil,
         typ: String? = "JWT",
         jku: String? = nil,
         jwk: String? = nil,
@@ -80,6 +83,7 @@ public struct Header: Codable {
         cty: String? = nil,
         crit: [String]? = nil
     ) {
+        self.id = id
         self.typ = typ
         self.alg = nil
         self.jku = jku
